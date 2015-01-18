@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple DJ Tool</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+
+    <script src="js/Loader.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Midi.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+    <h1>Simple DJ Tool</h1>
+
+    <div class="rectangle">
+        <div class = "tracks">
+            <div class="track">
+                <div class="line"><input type="file" id="file1"/></div>
+                <div class="line">
+                    <i class="fa fa-backward fa-lg" id="rewind1"></i>
+                    <i class="fa fa-play fa-lg" id="start1"></i>
+                    <i class="fa fa-pause fa-lg" id="pause1"></i>
+                    <i class="fa fa-stop fa-lg" id="stop1"></i>
+                    <i class="fa fa-forward fa-lg" id="forward1"></i>
+                </div>
+
+                <!--VOLUME CONTROL-->
+                <form oninput="amount.value=volumeIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="volumeIn1">Volume:</label></div>
+                            <div class="cell"><input type="range" id="volumeIn1" min="0" max="100" value="50"></div>
+                            <div class="cell"><output name="amount" id="volumeOut1" for="volumeIn1">50</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--PLAYBACK SPEED CONTROL-->
+                <form oninput="amount.value=speedIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="speedIn1">Play Speed:</label></div>
+                            <div class="cell"><input type="range" id="speedIn1" min="0" max="4" step="0.01" value="1"width="400"></div>
+                            <div class="cell"><output name="amount" id="speedOut1" for="speedIn1">1</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--REWIND/FORWARD SPEED CONTROL-->
+                <form oninput="amount.value=forwardspeedIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="forwardspeedIn1">Wind Speed:</label></div>
+                            <div class="cell"><input type="range" id="forwardspeedIn1" min="1" max="5" step="0.01" value="2"width="400"></div>
+                            <div class="cell"><output name="amount" id="forwardspeedOut1" for="forwardspeedIn1">2</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--LOWPASS FILTER CONTROL-->
+                <form oninput="amount.value=lowpassIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="lowpassIn1">Lowpass:</label></div>
+                            <div class="cell"><input type="range" id="lowpassIn1" name="Lowpass" min="0" max="20000" value="1000"></div>
+                            <div class="cell"><output name="amount" id="lowpassOut1" for="lowpassIn1">1000</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--BASS CONTROL-->
+                <form oninput="amount.value=bassIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="bassIn1">Bass:</label></div>
+                            <div class="cell"><input type="range" id="bassIn1" min="-10" max="10" step="0.1" value="0" width="400"></div>
+                            <div class="cell"><output name="amount" id="bassOut1" for="bassIn1">0</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--BASS FREQ-->
+                <form oninput="amount.value=bassfreqIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="bassfreqIn1">Bass Freq:</label></div>
+                            <div class="cell"><input type="range" id="bassfreqIn1" min="30" max="500" step="10" value="200" width="400"></div>
+                            <div class="cell"><output name="amount" id="bassfreqOut1" for="bassfreqIn1">200</output> Hz</div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--MIDS CONTROL-->
+                <form oninput="amount.value=midsIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="midsIn1">Mids:</label></div>
+                            <div class="cell"><input type="range" id="midsIn1" min="-10" max="10" step="0.1" value="0" width="400"></div>
+                            <div class="cell"><output name="amount" id="midsOut1" for="midsIn1">0</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--MIDS FREQ-->
+                <form oninput="amount.value=midsfreqIn1.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="midsfreqIn1">Mids Freq:</label></div>
+                            <div class="cell"><input type="range" id="midsfreqIn1" min="500" max="5000" step="25" value="1000" width="400"></div>
+                            <div class="cell"><output name="amount" id="midsfreqOut1" for="midsfreqIn1">1000</output> Hz</div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+
+            <div class="track">
+                <div class="line"><input type="file" id="file2"/></div>
+                <div class="line">
+                    <i class="fa fa-backward fa-lg" id="rewind2"></i>
+                    <i class="fa fa-play fa-lg" id="start2"></i>
+                    <i class="fa fa-pause fa-lg" id="pause2"></i>
+                    <i class="fa fa-stop fa-lg" id="stop2"></i>
+                    <i class="fa fa-forward fa-lg" id="forward2"></i>
+                </div>
+
+                <!--VOLUME CONTROL-->
+                <form oninput="amount.value=volumeIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="volumeIn2">Volume:</label></div>
+                            <div class="cell"><input type="range" id="volumeIn2" min="0" max="100" value="50"></div>
+                            <div class="cell"><output name="amount" id="volumeOut2" for="volumeIn2">50</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--PLAYBACK SPEED CONTROL-->
+                <form oninput="amount.value=speedIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="speedIn2">Play Speed:</label></div>
+                            <div class="cell"><input type="range" id="speedIn2" min="0" max="4" step="0.01" value="1" width="400"></div>
+                            <div class="cell"><output name="amount" id="speedOut2" for="speedIn2">1</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--REWIND/FORWARD SPEED CONTROL-->
+                <form oninput="amount.value=forwardspeedIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="forwardspeedIn2">Wind Speed:</label></div>
+                            <div class="cell"><input type="range" id="forwardspeedIn2" min="1" max="5" step="0.01" value="2" width="400"></div>
+                            <div class="cell"><output name="amount" id="forwardspeedOut2" for="forwardspeedIn2">2</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--LOWPASS FILTER CONTROL-->
+                <form oninput="amount.value=lowpassIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="lowpassIn2">Lowpass:</label></div>
+                            <div class="cell"><input type="range" id="lowpassIn2" name="Lowpass" min="0" max="20000" value="1000"></div>
+                            <div class="cell"><output name="amount" id="lowpassOut2" for="lowpassIn2">1000</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--BASS CONTROL-->
+                <form oninput="amount.value=bassIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="bassIn2">Bass:</label></div>
+                            <div class="cell"><input type="range" id="bassIn2" min="-10" max="10" step="0.1" value="0" width="400"></div>
+                            <div class="cell"><output name="amount" id="bassOut2" for="bassIn2">0</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--BASS FREQ-->
+                <form oninput="amount.value=bassfreqIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="bassfreqIn2">Bass Freq:</label></div>
+                            <div class="cell"><input type="range" id="bassfreqIn2" min="30" max="500" step="10" value="200" width="400"></div>
+                            <div class="cell"><output name="amount" id="bassfreqOut2" for="bassfreqIn2">200</output> Hz</div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--MIDS CONTROL-->
+                <form oninput="amount.value=midsIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="midsIn2">Mids:</label></div>
+                            <div class="cell"><input type="range" id="midsIn2" min="-10" max="10" step="0.1" value="0" width="400"></div>
+                            <div class="cell"><output name="amount" id="midsOut2" for="midsIn2">0</output></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--MIDS FREQ-->
+                <form oninput="amount.value=midsfreqIn2.value">
+                    <div class="table">
+                        <div class="row">
+                            <div class="cell"><label for="bassfreqIn2">Mids Freq:</label></div>
+                            <div class="cell"><input type="range" id="midsfreqIn2" min="500" max="5000" step="25" value="1000" width="400"></div>
+                            <div class="cell"><output name="amount" id="midsfreqOut2" for="midsfreqIn2">1000</output> Hz</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="crossfader">
+            <label for="bassfreqIn2">Crossfader:<br></label>
+            <div class="table">
+                <div class="row">
+                    <div class="cell">Source 1</div>
+                    <div class="cell"><input type="range" id="crossfader" min="0" max="100" step="1" value="50" width="400"></div>
+                    <div class="cell">Source 2</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+

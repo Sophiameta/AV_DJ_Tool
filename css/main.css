@@ -1,0 +1,109 @@
+body {
+    font-family: sans-serif;
+    color: black;
+    background-image: linear-gradient(#eeeeee 0%, white 100%);
+    background-repeat: no-repeat;
+    text-align: left;
+}
+
+h1 {
+    font-size: 4em;
+    font-family: Lobster, sans-serif;
+    color: orangered;
+    text-align: center;
+}
+
+.line {
+    padding-left: 24%;
+    margin-bottom: 2%;
+    display: block;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    padding: 0.5em;
+    border: 0.1em solid;
+    border-radius: 17px;
+    vertical-align: middle;
+    text-align: center;
+    background-image: linear-gradient(#eeeeee 0%, white 100%);
+}
+
+form {
+    padding-left: 24%;
+}
+
+i{
+    padding: 0.5em;
+    border: 0.1em solid;
+    border-radius: 17px;
+    vertical-align: middle;
+    text-align: center;
+    background-image: linear-gradient(#eeeeee 0%, white 100%);
+}
+
+i:hover{
+    color: orange;
+    cursor: pointer;
+}
+
+i:active {
+    color: orangered;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    cursor: pointer;
+}
+
+.tracks {
+    width: 100%;
+    display: inline;
+    float: left;
+    padding-bottom: 5%
+}
+
+.track {
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+
+.crossfader {
+    width: auto;
+    float: bottom;
+    text-align: center;
+}
+
+.crossfader div.table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table {
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+label{
+    font-weight: bold;
+}
+
+.rectangle {
+    background: #7a9fff;
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    opacity: 0.7;
+    border: solid;
+    border-radius: 6px;
+    border-color: #34ada2;
+    display: block;
+    text-align: center;
+}
